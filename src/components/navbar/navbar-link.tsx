@@ -9,7 +9,7 @@ type NavBarLinkProps = {
     tabColor?: string
 }
 
-export default function NavBarLink({href, children, active, color="inherit", fontSize="inherit", tabColor="#e0e7ff", ...rest}: NavBarLinkProps) {
+export default function NavBarLink({href, children, active, color="inherit", fontSize="inherit", tabColor="#fff", ...rest}: NavBarLinkProps) {
     const className = active ? "link active" : "link inactive";
     const listClassName = active ? "activeList" : "inactiveList";
     return (

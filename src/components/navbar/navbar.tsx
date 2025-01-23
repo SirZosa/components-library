@@ -6,9 +6,10 @@ import "./navbar.css"
 type NavBarProps = {
   children: React.ReactNode;
   backgroundColor?: string;
+  width?: string;
 };
 
-function NavBar({ children, backgroundColor="aliceblue" }: NavBarProps){
+function NavBar({ children, backgroundColor="aliceblue", width="100%" }: NavBarProps){
     const [activeLink, setActiveLink] = useState("");
 
     function handleClick(link:string){
@@ -16,7 +17,7 @@ function NavBar({ children, backgroundColor="aliceblue" }: NavBarProps){
     }
 
   return (
-    <nav className="navbar" style={{backgroundColor: backgroundColor}}>
+    <nav className="navbar" style={{backgroundColor: backgroundColor, width: width}}>
         <ul className="links-container">{React.Children.map(children, child =>{
             const link = (child as React.ReactElement).props.href;
             const active = link === activeLink ;
