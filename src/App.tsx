@@ -1,8 +1,11 @@
 import NavBar from './components/navbar/navbar'
+import SearchBar from './components/search_bar/search_bar'
 import './App.css'
 
 function App() {
-
+  function search(s:string){
+    console.log(s)
+  }
   return (
     <>
     <header>
@@ -32,6 +35,7 @@ function App() {
           <span className='dash'>{`</`}</span><span className='component'>{`NavBar`}</span><span className='dash'>{`>`}</span><br></br>
         </p>
       </article>
+      <SearchBar handleSearch={(e) => search(e)}/>
     </section>
     </>
   )
