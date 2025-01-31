@@ -1,0 +1,76 @@
+.banner{
+    display: block;
+    padding: 0.5em 1em;
+    border-radius: 7px;
+    margin: 0;
+}
+
+.banner-flex{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.banner-topic{
+    font-weight: 500;
+}
+
+.banner-text{
+    margin-left: 1.5em;
+    text-align: start;
+}
+
+.banner-text-success{
+    color: #047857;
+}
+
+.banner-text-warning{
+    color: #B45309;
+}
+
+.banner-text-error{
+    color: #B45309;
+}
+
+.banner-text-neutral{
+    color: #1C51B9;
+}
+
+.banner h3{
+    margin: 0;
+}
+
+.color-red{
+    color:#991B1B;
+    background-color: #FEE2E2;
+}
+
+.color-yellow{
+    color: #92400E;
+    background-color: #FEF3C7;
+}
+
+.color-green{
+    color: #065F46;
+    background-color: #D1FAE5;
+}
+
+.color-blue{
+    color: #1E40AF;
+    background-color: #DBEAFE;
+}
+
+.color-indigo{
+    color:#3730A3;
+    background-color: #E0E7FF;
+}
+
+.color-purple{
+    color: #5B21B6;
+    background-color: #EDE9FE;
+}
+
+.color-pink{
+    color: #9D174D;
+    background-color: #FCE7F3;
+}
