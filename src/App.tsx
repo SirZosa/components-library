@@ -1,11 +1,29 @@
 import NavBar from './components/navbar/navbar'
 import SearchBar from './components/search_bar/search_bar'
+import Banner from './components/banner/banner'
+import Popup from './components/popup/popup'
 import './App.css'
+import {useState} from 'react'
+type PopupData = {
+  id: number; // Unique ID for each popup
+  text: string; // Text to display in the popup
+}
 
 function App() {
-  function search(s:string){
-    console.log(s)
+  const [popUps, setPopUps] = useState<PopupData[]>([])
+
+  function search(text:string){
+    const newPopup: PopupData = {
+      id: Date.now(), // Use a timestamp as a unique ID
+      text,
+    };
+    setPopUps((prevPopups) => [...prevPopups, newPopup]);
   }
+
+  function closePopup(id: number){
+    setPopUps((prevPopups) => prevPopups.filter((popup) => popup.id !== id)); // Remove the popup with the matching ID
+  };
+
   return (
     <>
     <header>
@@ -35,7 +53,38 @@ function App() {
           <span className='dash'>{`</`}</span><span className='component'>{`NavBar`}</span><span className='dash'>{`>`}</span><br></br>
         </p>
       </article>
-      <SearchBar handleSearch={(e) => search(e)}/>
+      <article>
+        <h2>Search Bar</h2>
+        <div className="showcase">
+          <SearchBar handleSearch={(e) => search(e)}/>
+        </div>
+        <p className='code'>
+          <span className='dash'>{`<`}</span><span className='component'>{`SearchBar`}</span> <span className='input'>handleSearch</span>=<span className='value'>{`{(e) => search(e)}`}</span><span className='dash'>{`/>`}</span><br></br>
+        </p>
+      </article>
+      <article>
+        <h2>Search Bar</h2>
+        <div className="showcase">
+          <Banner type="success">
+            <Banner.Topic>Succes</Banner.Topic>
+            <Banner.Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</Banner.Text>
+          </Banner>
+        </div>
+        <p className='code'>
+          <span className='dash'>{`<`}</span><span className='component'>{`Banner`}</span> <span className='input'>type</span>=<span className='value'>"success" </span><span className='dash'>{`>`}</span><br></br>
+          &emsp;<span className='dash'>{`<`}</span><span className='component'>{`Banner.Topic `}</span><span className='dash'>{`>`}</span>Success<span className='dash'>{`</`}</span><span className='component'>{`Banner.Topic`}</span><span className='dash'>{`>`}</span><br></br>
+          &emsp;<span className='dash'>{`<`}</span><span className='component'>{`Banner.Text `}</span><span className='dash'>{`>`}</span>Lorem, ipsum dolor sit amet consectetur adipisicing elit.<span className='dash'>{`</`}</span><span className='component'>{`Banner.Text`}</span><span className='dash'>{`>`}</span><br></br>
+          <span className='dash'>{`</`}</span><span className='component'>{`Banner`}</span><span className='dash'>{`>`}</span><br></br>
+        </p>
+      </article>
+      {popUps.map((popup) => (
+        <Popup key={popup.id} isOpen={true} onClose={() => closePopup(popup.id)}>
+          <Banner type="success">
+            <Banner.Topic>Search Result</Banner.Topic>
+            <Banner.Text>{popup.text}</Banner.Text>
+          </Banner>
+        </Popup>
+      ))}
     </section>
     </>
   )
