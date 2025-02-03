@@ -2,6 +2,7 @@ import NavBar from './components/navbar/navbar'
 import SearchBar from './components/search_bar/search_bar'
 import Banner from './components/banner/banner'
 import Popup from './components/popup/popup'
+import FadeIn from './components/fadein/fadein'
 import './App.css'
 import {useState} from 'react'
 type PopupData = {
@@ -77,14 +78,19 @@ function App() {
           <span className='dash'>{`</`}</span><span className='component'>{`Banner`}</span><span className='dash'>{`>`}</span><br></br>
         </p>
       </article>
-      {popUps.map((popup) => (
-        <Popup key={popup.id} isOpen={true} onClose={() => closePopup(popup.id)}>
-          <Banner type="success">
-            <Banner.Topic>Search Result</Banner.Topic>
-            <Banner.Text>{popup.text}</Banner.Text>
-          </Banner>
-        </Popup>
-      ))}
+      <article>
+        <h2>Fade In</h2>
+        <div className="showcase">
+          <FadeIn>
+            <p>Fade in</p>
+          </FadeIn>
+        </div>
+        <p className='code'>
+          <span className='dash'>{`<`}</span><span className='component'>{`FadeIn`}</span><span className='dash'>{`>`}</span><br></br>
+          &emsp;<span className='dash'>{`<`}</span><span className='component'>{`p`}</span><span className='dash'>{`>`}</span>Fade in<span className='dash'>{`</`}</span><span className='component'>{`p`}</span><span className='dash'>{`>`}</span><br></br>
+          <span className='dash'>{`</`}</span><span className='component'>{`NavBar`}</span><span className='dash'>{`>`}</span><br></br>
+        </p>
+      </article>
     </section>
     </>
   )
